@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Fixtures"/>
+	<classpathentry kind="src" path="RobotFixtures"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/hsqldb/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/hsqldb/sqltool.jar"/>
+	<classpathentry kind="lib" path="lib/robotframework-2.5.2/robotframework-2.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.8.2/junit-4.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/fit/fitlibraryRunner.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

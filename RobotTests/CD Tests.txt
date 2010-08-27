@@ -1,0 +1,46 @@
+** Settings **
+Resource	_cd_keywords.txt
+
+
+** Test Cases **
+Sams Add a CD
+	Sams Adds CD "CD1234567890" with Title "Beatles Greatest Hits"
+
+Sams Add a Customer
+	Sams Adds Customer "C007" with Name "James"
+
+Verify that the CD is Not Rented
+	Verify that the Rental Status for CD "CD1234567890" is "No"
+
+Set the Date for Rental
+	Set Date "1/3/10 8:00 AM"
+
+The Customer Rents the CD
+	Customer "C007" Rents CD "CD1234567890"
+
+Verify that Sams Recorded the Rental
+	Verify that the Rental Status for CD "CD1234567890" is "Yes"
+	Verify that the Rental Customer ID for CD "CD1234567890" is "C007"
+	Verify that the Rental Start Time for CD "CD1234567890" is "1/3/10 8:00 AM"
+
+Verify that the Rental Contract Describes the Rental
+ 	Verify that the Rental Contract Customer ID Is "C007"
+ 	Verify that the Rental Contract Customer Name is "James"
+ 	Verify that the Rental Contract CD ID is "CD1234567890"
+ 	Verify that the Rental Contract CD Title is "Beatles Greatest Hits"
+ 	Verify that the Rental Contract Due Date is "1/5/10 8:00 AM"
+
+Set the Date for Return
+	Set Date "1/8/10 8:00 AM"
+
+The Customer Returns the CD
+	Customer Returns CD "CD1234567890"
+
+Verify that Sams Recorded the Return
+	Verify that the Rental Status for CD "CD1234567890" is "No"
+
+Verify that the Rental Charge Describes the Rental
+ 	Verify that the Rental Charge Customer Name is "James"
+ 	Verify that the Rental Charge CD Title is "Beatles Greatest Hits"
+ 	Verify that the Rental Charge Return Date is "1/8/10 8:00 AM"
+ 	Verify that the Rental Charge Fee is "$10.00"
