@@ -1,5 +1,9 @@
 ** Settings **
-Resource	_cd_keywords.txt
+Resource	_keywords/actions.txt
+Resource	_keywords/cd.txt
+Resource	_keywords/charge.txt
+Resource	_keywords/contract.txt
+Resource	_keywords/date.txt
 
 
 ** Test Cases **

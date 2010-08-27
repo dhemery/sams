@@ -1,0 +1,15 @@
+** Settings **
+Library		SamsCDRentalLibrary
+
+** Keywords **
+Customer "${customerID}" Rents CD "${cdID}"
+	Rent  ${customerID}  ${cdID}
+
+Customer Returns CD "${cdID}"
+	Return CD  ${cdID}
+
+Sams Adds CD "${id}" with Title "${title}"
+	Add CD  ${id}  ${title}
+
+Sams Adds Customer "${id}" with Name "${name}"
+	Add Customer  ${id}  ${name}

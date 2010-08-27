@@ -1,0 +1,6 @@
+** Settings **
+Library		SamsCDRentalLibrary
+
+** Keywords **
+Set Date "${date}"
+	Set Test Date  ${date}

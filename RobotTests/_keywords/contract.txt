@@ -1,0 +1,23 @@
+** Settings **
+Library		SamsCDRentalLibrary
+
+** Keywords **
+Verify that the Rental Contract Customer ID Is "${requiredCustomerID}"
+  	${actualCustomerId}=  Get Rental Contract Customer ID
+  	Should Be Equal  ${requiredCustomerID}  ${actualCustomerID}
+  
+Verify that the Rental Contract Customer Name is "${requiredCustomerName}"
+  	${actualCustomerName}=  Get Rental Contract Customer Name
+  	Should Be Equal  ${requiredCustomerName}  ${actualCustomerName}
+  
+Verify that the Rental Contract CD ID is "${requiredCDID}"
+  	${actualCDID}=  Get Rental Contract CD ID
+  	Should Be Equal  ${requiredCDID}  ${actualCDID}
+  
+Verify that the Rental Contract CD Title is "${requiredCDTitle}"
+ 	${actualCDTitle}=  Get Rental Contract CD Title
+ 	Should Be Equal  ${requiredCDTitle}  ${actualCDTitle}
+ 
+Verify that the Rental Contract Due Date is "${requiredDueDate}"
+ 	${actualDueDate}=  Get Rental Contract Due Date
+ 	Should Be Equal  ${requiredDueDate}  ${actualDueDate}

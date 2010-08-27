@@ -1,0 +1,19 @@
+** Settings **
+Library		SamsCDRentalLibrary
+
+** Keywords **
+Verify that the Rental Charge Customer Name is "${requiredCustomerName}"
+  	${actualCustomerName}=  Get Rental Charge Customer Name
+  	Should Be Equal  ${requiredCustomerName}  ${actualCustomerName}
+  
+Verify that the Rental Charge CD Title is "${requiredCDTitle}"
+  	${actualCDTitle}=  Get Rental Charge CD Title
+  	Should Be Equal  ${requiredCDTitle}  ${actualCDTitle}
+
+Verify that the Rental Charge Return Date is "${requiredReturnDate}"
+  	${actualReturnDate}=  Get Rental Charge Return Date
+  	Should Be Equal  ${requiredReturnDate}  ${actualReturnDate}
+
+Verify that the Rental Charge Fee is "${requiredRentalFee}"
+  	${actualRentalFee}=  Get Rental Charge Fee
+  	Should Be Equal  ${requiredRentalFee}  ${actualRentalFee}

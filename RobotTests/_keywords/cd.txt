@@ -1,0 +1,15 @@
+** Settings **
+Library		SamsCDRentalLibrary
+
+** Keywords **
+Verify that the Rental Customer ID for CD "${cdID}" is "${requiredCustomerID}"
+	${actualCustomerID}=	Get Rental Customer ID For CD	${cdID}
+	Should Be Equal		${requiredCustomerID}		${actualCustomerID}
+ 
+Verify that the Rental Status for CD "${cdID}" is "${requiredRentalStatus}"
+	${actualRentalStatus}=	Get Rental Status For CD	${cdID}
+	Should Be Equal		${requiredRentalStatus}		${actualRentalStatus}
+
+Verify that the Rental Start Time for CD "${cdID}" is "${requiredRentalStartTime}"
+	${actualRentalStartTime}=	Get Rental Start Time For CD	${cdID}
+	Should Be Equal		${requiredRentalStartTime}		${actualRentalStartTime}

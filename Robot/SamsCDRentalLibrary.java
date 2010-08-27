@@ -15,12 +15,12 @@ import com.samscdrental.model.adt.PhysicalIDADT;
 import com.samscdrental.model.adt.TimeStamp;
 import com.samscdrental.model.adt.YesNo;
 
-public class SamsCDRentalKeywords {
+public class SamsCDRentalLibrary {
     public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
 	private RentalContract contract;
 	private RentalCharge charge;
 
-	public SamsCDRentalKeywords() {
+	public SamsCDRentalLibrary() {
 		DatabaseSetup.setup();
 		DatabaseSetup.removeTables();
 		DatabaseSetup.setupTables();
