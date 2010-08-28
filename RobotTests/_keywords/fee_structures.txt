@@ -1,0 +1,7 @@
+** Settings **
+Library		com.samscdrental.robot.KeywordLibrary
+
+** Keywords **
+Verify Fee  [Arguments]  ${category}  ${days}  ${requiredFee}
+	${actualFee}=	Calculate Fee For Category  ${category}  ${days}
+	Should Be Equal  ${actualFee}  ${requiredFee}

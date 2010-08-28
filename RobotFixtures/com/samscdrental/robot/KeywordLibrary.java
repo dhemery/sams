@@ -2,15 +2,20 @@ package com.samscdrental.robot;
 
 
 import com.samscdrental.dataaccess.CDAccess;
+import com.samscdrental.dataaccess.CategoryValuesAccess;
 import com.samscdrental.dataaccess.CustomerAccess;
 import com.samscdrental.dataaccess.DatabaseSetup;
 import com.samscdrental.failures.FormatDeviation;
 import com.samscdrental.model.CD;
+import com.samscdrental.model.CDCategory;
+import com.samscdrental.model.CDCategoryValue;
 import com.samscdrental.model.Customer;
 import com.samscdrental.model.RentalCharge;
 import com.samscdrental.model.RentalContract;
 import com.samscdrental.model.RentalProcess;
+import com.samscdrental.model.adt.Count;
 import com.samscdrental.model.adt.CustomerIDADT;
+import com.samscdrental.model.adt.Dollar;
 import com.samscdrental.model.adt.Name;
 import com.samscdrental.model.adt.PhysicalIDADT;
 import com.samscdrental.model.adt.TimeStamp;
@@ -35,6 +40,20 @@ public class KeywordLibrary {
 
 	public void addCustomer(String id, String name) {
 		CustomerAccess.addCustomer(makeCustomer(id, name));
+	}
+
+	public void addCategory(String categoryName, int days, String baseFee, String extraDayFee) {
+		CDCategoryValue category = new CDCategoryValue(makeCategoryName(categoryName),
+														makeCount(days), 
+														makeDollar(baseFee),
+														makeDollar(extraDayFee));
+		CategoryValuesAccess.addCategoryValue(category);
+	}
+
+	public String calculateFeeForCategory(String categoryName, int rentalDays) {
+		
+		return RentalProcess.computeRentalFee(makeCategoryName(categoryName), makeCount(rentalDays)).toString();
+
 	}
 
 	private CD getCD(String id) {
@@ -89,6 +108,10 @@ public class KeywordLibrary {
 		return getCD(id).getRented().toString();
 	}
 
+	private CDCategory makeCategoryName(String categoryName) {
+		return new CDCategory(categoryName);
+	}
+
 	private CD makeCD(String id, String title) {
 		return new CD(makeCDID(id), makeName(title), YesNo.DEFAULT_VALUE,  CustomerIDADT.DEFAULT_VALUE, TimeStamp.DEFAULT_VALUE);
 	}
@@ -101,6 +124,10 @@ public class KeywordLibrary {
 		}
 	}
 
+	private Count makeCount(int count) {
+		return new Count(count);
+	}
+
 	private Customer makeCustomer(String id, String name) {
 		return new Customer(makeCustomerID(id), makeName(name));
 	}
@@ -108,6 +135,14 @@ public class KeywordLibrary {
 	private CustomerIDADT makeCustomerID(String id) {
 		try {
 			return new CustomerIDADT(id);
+		} catch (FormatDeviation e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	private Dollar makeDollar(String amount) {
+		try {
+			return new Dollar(amount);
 		} catch (FormatDeviation e) {
 			throw new RuntimeException(e);
 		}

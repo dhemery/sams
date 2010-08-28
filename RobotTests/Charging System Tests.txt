@@ -1,0 +1,17 @@
+** Settings **
+Resource	_keywords/fee_structures.txt
+
+
+** Test Cases **
+Add Fee Structure Categories
+#					Category		Rental Days		Base Rental Fee		Extra Day Rental Fee
+	Add Category	NewRelease		1				2.00				2.00
+	Add Category	GoldenOldie		3				1.00				0.50
+	Add Category	Regular			2				1.50				1.00
+	Add Category	NotSet			2				1.00				1.00
+
+Verify Rental Fees
+#					Category		Rental Days		Total Rental Fee
+	Verify Fee		NewRelease		5				$10.00
+	Verify Fee		GoldenOldie		3				$1.00
+	Verify Fee		Regular			3				$2.50
