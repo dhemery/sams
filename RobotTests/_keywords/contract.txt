@@ -1,5 +1,5 @@
 ** Settings **
-Library		SamsCDRentalLibrary
+Library		com.samscdrental.robot.KeywordLibrary
 
 ** Keywords **
 Verify that the Rental Contract Customer ID Is "${requiredCustomerID}"

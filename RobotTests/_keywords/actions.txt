@@ -1,5 +1,5 @@
 ** Settings **
-Library		SamsCDRentalLibrary
+Library		com.samscdrental.robot.KeywordLibrary
 
 ** Keywords **
 Customer "${customerID}" Rents CD "${cdID}"
