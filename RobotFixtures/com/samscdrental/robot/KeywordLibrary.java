@@ -1,3 +1,4 @@
+package com.samscdrental.robot;
 
 
 import com.samscdrental.dataaccess.CDAccess;
@@ -15,12 +16,14 @@ import com.samscdrental.model.adt.PhysicalIDADT;
 import com.samscdrental.model.adt.TimeStamp;
 import com.samscdrental.model.adt.YesNo;
 
-public class SamsCDRentalLibrary {
+public class KeywordLibrary {
+    // Tells Robot Framework to create only one instance per test run.
     public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
-	private RentalContract contract;
+
+    private RentalContract contract;
 	private RentalCharge charge;
 
-	public SamsCDRentalLibrary() {
+	public KeywordLibrary() {
 		DatabaseSetup.setup();
 		DatabaseSetup.removeTables();
 		DatabaseSetup.setupTables();
@@ -38,26 +41,6 @@ public class SamsCDRentalLibrary {
 		return CDAccess.findByPhysicalID(makeCDID(id));
 	}
 
-	public String getRentalContractCDID() {
-		return contract.getPhysicalID().toString();
-	}
-
-	public String getRentalContractCDTitle() {
-		return contract.getTitle().toString();
-	}
-	
-	public String getRentalContractCustomerID() {
-		return contract.getCustomerID().toString();
-	}
-
-	public String getRentalContractCustomerName() {
-		return contract.getCustomerName().toString();
-	}
-
-	public String getRentalContractDueDate() {
-		return contract.getDueDate().toString();
-	}
-
 	public String getRentalChargeCDTitle() {
 		return charge.getTitle().toString();
 	}
@@ -69,9 +52,29 @@ public class SamsCDRentalLibrary {
 	public String getRentalChargeFee() {
 		return charge.getRentalFee().toString();
 	}
-	
+
 	public String getRentalChargeReturnDate() {
 		return charge.getReturnDate().toString();
+	}
+
+	public String getRentalContractCDID() {
+		return contract.getPhysicalID().toString();
+	}
+
+	public String getRentalContractCDTitle() {
+		return contract.getTitle().toString();
+	}
+
+	public String getRentalContractCustomerID() {
+		return contract.getCustomerID().toString();
+	}
+	
+	public String getRentalContractCustomerName() {
+		return contract.getCustomerName().toString();
+	}
+	
+	public String getRentalContractDueDate() {
+		return contract.getDueDate().toString();
 	}
 
 	public String getRentalCustomerIDForCD(String id) {
